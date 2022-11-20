@@ -1,14 +1,11 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import Header from "../components/Header/Header";
+import MovieResults from "../components/MovieResults/Results";
 import Nav from "../components/Nav/Nav";
+import requests from "../utils/requests";
 
-import { trpc } from "../utils/trpc";
-
-const Home: NextPage = () => {
-  const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-
+const Home: NextPage = ({results}) => {
   return (
     <>
       <Head>
@@ -18,8 +15,21 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <Nav />
+      <MovieResults results={results} />
     </>
   );
 };
 
 export default Home;
+
+export async function getServerSideProps(context: { query: { genre: string; }; }) {
+  const genre = context.query.genre
+
+  const request = await fetch(`https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url}`).then(res => res.json())
+
+  return {
+    props: {
+      results: request.results,
+    }
+  }
+}
