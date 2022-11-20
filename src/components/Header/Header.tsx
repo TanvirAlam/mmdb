@@ -26,8 +26,8 @@ const Header = () => {
         alt="logo" 
         className="object-contain"
         src="/logo.png" 
-        width={300} 
-        height={150} />
+        width={200} 
+        height={100} />
     </header>
   )
 }
