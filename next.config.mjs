@@ -13,5 +13,8 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["miro.medium.com", "image.tmdb.org"]
+  }
 };
 export default config;
