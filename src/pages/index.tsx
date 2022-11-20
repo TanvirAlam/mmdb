@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/Header/Header";
+import Nav from "../components/Nav/Nav";
 
 import { trpc } from "../utils/trpc";
 
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <Nav />
     </>
   );
 };
