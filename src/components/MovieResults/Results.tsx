@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
+import requests from '../../utils/requests'
 import SearchBox from '../SearchBox/Search'
 import Thumbnail from './Thumbnail'
+import apiClient from '../../server/http-common'
 
 const MovieResults = ({ results }: any) => {
-  const [searchText, setSearchText] = useState('')
+  const [searchText, setSearchText] = useState('');
+  const [movieResults, setMovieResults] = useState(results);
 
-  const searchForMovies = (e: { preventDefault: () => void }) => {
+  const searchForMovies = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    
-    console.log("Calling", searchText)
+    const response = await apiClient.get(`${requests['searchMovies']?.url}`, { params: { query: searchText } })
+    const results = await response.data.results
+    setMovieResults(results)
   }
 
   return (
@@ -16,7 +20,7 @@ const MovieResults = ({ results }: any) => {
       <SearchBox setSearchText={setSearchText} searchForMovies={searchForMovies} />
       <div className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap justify-center">
           {
-              results.map((result: { id: React.Key | null | undefined }) => (
+              movieResults && movieResults.map((result: { id: React.Key | null | undefined }) => (
                   <Thumbnail key={result.id} result={result} />
               ))
           }

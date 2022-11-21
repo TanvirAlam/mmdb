@@ -6,6 +6,7 @@ import Nav from "../components/Nav/Nav";
 import requests from "../utils/requests";
 
 const Home: NextPage = ({results}: any) => {
+
   return (
     <>
       <Head>

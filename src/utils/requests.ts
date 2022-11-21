@@ -1,4 +1,4 @@
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -41,5 +41,9 @@ export default {
     fetchTV: {
         title: 'TV Movies',
         url: `/discover/movie?api_key=${API_KEY}&with_genres=10770`
+    },
+    searchMovies: {
+        title: 'Search',
+        url: `/search/movie?api_key=${API_KEY}&language=en-US&include_adult=true`
     }
 }
