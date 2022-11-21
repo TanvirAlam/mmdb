@@ -17,7 +17,7 @@ const Thumbnail = ({result}: any) => {
                 src={`${BASE_URL}${result.backdrop_path || result.poster_path}` || `${BASE_URL}${result.poster_path}`}
                 height={1080}
                 width={1920}
-                alt={result.original_title}
+                alt={result.original_title || "dummy"}
             />
             <div className="p-2">
                 <p className="truncate max-w-md group-hover:text-clip">{result.overview}</p>
