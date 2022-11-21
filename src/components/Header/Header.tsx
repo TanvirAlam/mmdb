@@ -4,15 +4,17 @@ import HeaderItems from './HeaderItems'
 
 import { 
   HomeIcon,
-  UserIcon
+  UserIcon,
+  VideoCameraIcon
 } from '@heroicons/react/24/outline'
 
 const Header = () => {
   return (
     <header className="flex flex-col sm:flex-row m-5 justify-between items-center h-auto">
       <div className="flex flex-grow justify-left">
-        <HeaderItems title="HOME" Icon={HomeIcon} />
         <HeaderItems title="USER" Icon={UserIcon} />
+        <HeaderItems title="HOME" Icon={HomeIcon} />
+        <HeaderItems title="WATCH" Icon={VideoCameraIcon} />
       </div>
       <Image 
         alt="logo" 
