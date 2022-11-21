@@ -1,7 +1,8 @@
 import Image from 'next/image'
 
 import { 
-  HandThumbUpIcon
+  HandThumbUpIcon,
+  HandThumbDownIcon
 } from '@heroicons/react/24/outline'
 
 const Thumbnail = ({result}: any) => {
@@ -17,12 +18,14 @@ const Thumbnail = ({result}: any) => {
                 alt={result.original_title}
             />
             <div className="p-2">
-                <p className="truncate max-w-md">{result.overview}</p>
+                <p className="truncate max-w-md group-hover:text-clip">{result.overview}</p>
                 <h2 className="mt-1 text-2xl text-white transition-all duration-100 ease-in-out group-hover:font-bold">{result.title || result.original_name}</h2>
                 <p className="flex items-center opacity-0 group-hover:opacity-100">
                     {result.media_type && `${result.media_type} *`}{" "}
                     {result.release_date || `${result.first_air_date} *`}{" "}
-                    <HandThumbUpIcon className="h-5 mx-2" />{result.vote_count}
+                    <button className="hover:text-orange"><HandThumbUpIcon className="h-5 mx-2" /></button>
+                    {result.vote_count}
+                    <button className="hover:text-orange"><HandThumbDownIcon className="h-5 mx-2" /></button>
                 </p>
             </div>
         </div>

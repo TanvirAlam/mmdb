@@ -3,6 +3,7 @@ import Head from "next/head";
 import Header from "../components/Header/Header";
 import MovieResults from "../components/MovieResults/Results";
 import Nav from "../components/Nav/Nav";
+import SearchBox from "../components/SearchBox/Search";
 import requests from "../utils/requests";
 
 const Home: NextPage = ({results}: any) => {
@@ -15,6 +16,7 @@ const Home: NextPage = ({results}: any) => {
       </Head>
       <Header />
       <Nav />
+      <SearchBox />
       <MovieResults results={results} />
     </>
   );
