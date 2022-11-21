@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import MovieResults from "../components/MovieResults/Results";
 import Nav from "../components/Nav/Nav";
 import requests from "../utils/requests";
+import apiClient from '../server/http-common'
 
 const Home: NextPage = ({results}: any) => {
 
@@ -24,13 +25,13 @@ const Home: NextPage = ({results}: any) => {
 export default Home;
 
 export async function getServerSideProps(context: { query: { genre: string; }; }) {
-  const genre = context.query.genre
+  const genre = context.query.genre;
 
-  const request = await fetch(`https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url}`).then(res => res.json())
+  const request = await apiClient.get(`${requests[genre]?.url || requests.fetchTrending.url}`)
 
   return {
     props: {
-      results: request.results,
+      results: await request.data.results,
     }
   }
 }
