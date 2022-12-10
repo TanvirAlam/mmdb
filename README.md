@@ -25,3 +25,13 @@ Also checkout these awesome tutorials on `create-t3-app`.
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+### SAMPLE:
+
+### Desktop
+
+![images/Peek_2022-12-10_22-34.gif](images/Peek_2022-12-10_22-34.gif)
+
+### Mobile
+
+![images/Peek_2022-12-10_22-36.gif](images/Peek_2022-12-10_22-36.gif)
